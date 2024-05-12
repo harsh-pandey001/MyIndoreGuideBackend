@@ -1,0 +1,26 @@
+{
+  "version": 2,
+ 
+  "builds": [
+    { "src": "./index.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/" },
+    {
+      "src": "/form/auth/login",
+      "methods": ["POST"],
+      "dest": "https://my-indore-guide.vercel.app/form/auth/login",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://my-indore-guide-fontend.vercel.app"
+      }
+    },
+    {
+      "src": "/form/signup/create",
+      "methods": ["POST"],
+      "dest": "https://my-indore-guide-backend.vercel.app/form/signup/create",
+      "headers": {
+        "Access-Control-Allow-Origin": "https://my-indore-guide-fontend.vercel.app"
+      }
+    }
+  ]
+}
